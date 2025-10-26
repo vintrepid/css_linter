@@ -34,7 +34,7 @@ defmodule CssLinter.Schema.ClassUsage do
     repo.all(query)
   end
 
-  def summary_stats(analyzed_at \\ nil, project_name \\ nil, repo \\ repo) do
+  def summary_stats(analyzed_at \\ nil, project_name \\ nil, repo) do
     query = from c in __MODULE__,
       group_by: c.class_name,
       select: %{
@@ -50,7 +50,7 @@ defmodule CssLinter.Schema.ClassUsage do
     repo.all(query)
   end
 
-  def category_stats(analyzed_at \\ nil, project_name \\ nil, repo \\ repo) do
+  def category_stats(analyzed_at \\ nil, project_name \\ nil, repo) do
     query = from c in __MODULE__,
       where: not is_nil(c.category),
       group_by: c.category,
@@ -66,7 +66,7 @@ defmodule CssLinter.Schema.ClassUsage do
     repo.all(query)
   end
 
-  def file_stats(analyzed_at \\ nil, project_name \\ nil, repo \\ repo) do
+  def file_stats(analyzed_at \\ nil, project_name \\ nil, repo) do
     query = from c in __MODULE__,
       group_by: c.file_path,
       select: %{
@@ -81,7 +81,7 @@ defmodule CssLinter.Schema.ClassUsage do
     repo.all(query)
   end
 
-  def files_for_class(class_name, repo \\ repo) do
+  def files_for_class(class_name, repo) do
     query = from c in __MODULE__,
       where: c.class_name == ^class_name,
       select: %{
