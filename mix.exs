@@ -1,7 +1,7 @@
 defmodule CssLinter.MixProject do
   use Mix.Project
 
-  @version "0.1.0"
+  @version "0.2.0"
   @source_url "https://github.com/vintrepid/css_linter"
 
   def project do
@@ -11,7 +11,7 @@ defmodule CssLinter.MixProject do
       elixir: "~> 1.18",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
-      description: "CSS linting and analysis tool with pluggable strategies",
+      description: "CSS linting and analysis tool with Phoenix LiveView UI",
       package: package(),
       docs: docs()
     ]
@@ -28,6 +28,8 @@ defmodule CssLinter.MixProject do
     [
       {:igniter, "~> 0.6"},
       {:jason, "~> 1.4"},
+      {:ecto_sql, "~> 3.12"},
+      {:phoenix_live_view, "~> 1.0"},
       {:ex_doc, "~> 0.31", only: :dev, runtime: false}
     ]
   end
@@ -38,7 +40,8 @@ defmodule CssLinter.MixProject do
       licenses: ["MIT"],
       links: %{
         "GitHub" => @source_url
-      }
+      },
+      files: ~w(lib priv .formatter.exs mix.exs README.md LICENSE.md CHANGELOG.md)
     ]
   end
 
