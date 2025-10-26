@@ -80,3 +80,30 @@ By Category:
 ## License
 
 MIT
+
+## Installation
+
+See [INSTALLATION.md](INSTALLATION.md) for complete setup instructions.
+
+Quick start:
+
+```elixir
+{:css_linter, github: "vintrepid/css_linter"}
+```
+
+Then:
+
+```bash
+mix deps.get
+mix css_linter.analyze --strategy tailwind --output analysis.json
+```
+
+## UI Components
+
+Web UI components (LiveViews for viewing analysis) are currently in development.
+
+For now, see Maestro project for reference LiveView implementations:
+- `TailwindAnalysisLive` - Analysis dashboard
+- `PageInventoryLive` - HTML tag search across pages
+
+These can be copied and adapted to your project.
