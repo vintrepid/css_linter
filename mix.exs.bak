@@ -30,10 +30,10 @@ defmodule CssLinter.MixProject do
       {:jason, "~> 1.4"},
       {:ecto_sql, "~> 3.12"},
       {:phoenix_live_view, "~> 1.0"},
-      {:live_table, github: "vintrepid/live_table", branch: "master"},
       {:ex_doc, "~> 0.31", only: :dev, runtime: false}
     ]
   end
+
   defp package do
     [
       maintainers: ["Vince"],
