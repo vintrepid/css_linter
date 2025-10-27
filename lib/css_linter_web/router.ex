@@ -15,10 +15,10 @@ defmodule CssLinterWeb.Router do
   """
 
   defmacro css_linter_routes(path \\ "/css-analysis") do
-    quote bind_quoted: [path: path] do
+    quote do
       import Phoenix.LiveView.Router
       
-      live path, CssLinterWeb.Live.AnalysisLive, :index
+      live unquote(path), unquote(CssLinterWeb.Live.AnalysisLive), :index
     end
   end
 end
