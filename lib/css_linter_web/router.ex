@@ -4,21 +4,11 @@ defmodule CssLinterWeb.Router do
   
   ## Usage
   
-  In your router:
+  Simply add the LiveView directly to your router:
   
-      import CssLinterWeb.Router
-      
       scope "/admin" do
         pipe_through [:browser, :require_authenticated_user]
-        css_linter_routes("/css-analysis")
+        live "/css-analysis", CssLinterWeb.Live.AnalysisLive, :index
       end
   """
-
-  defmacro css_linter_routes(path \\ "/css-analysis") do
-    quote do
-      import Phoenix.LiveView.Router
-      
-      live unquote(path), unquote(CssLinterWeb.Live.AnalysisLive), :index
-    end
-  end
 end
